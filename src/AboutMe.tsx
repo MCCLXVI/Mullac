@@ -1,95 +1,89 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import './AboutMe.css';
 
 const AboutMe: React.FC = () => {
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  const toggleTheme = () => {
+    setIsDarkTheme((prev) => !prev);
+  };
+
+  useEffect(() => {
+    if (isDarkTheme) {
+      document.body.classList.add('dark-theme');
+      document.body.classList.remove('light-theme');
+    } else {
+      document.body.classList.add('light-theme');
+      document.body.classList.remove('dark-theme');
+    }
+  }, [isDarkTheme]);
+
   return (
-    <div style={{
-      fontFamily: 'Arial, sans-serif',
-      maxWidth: '800px',
-      margin: '0 auto',
-      padding: '20px',
-      color: '#333',
-    }}>
-      <header style={{ textAlign: 'center', marginBottom: '2rem' }}>
+    <div className="about-me">
+      <button className="theme-toggle" onClick={toggleTheme}>
+        Switch to {isDarkTheme ? 'Light' : 'Dark'} Theme
+      </button>
+      <header className="about-me-header">
         <img
           src="/placeholder.svg?height=150&width=150"
           alt="Mullac Reckut"
-          style={{
-            width: '150px',
-            height: '150px',
-            borderRadius: '50%',
-            border: '4px solid #fff',
-            boxShadow: '0 0 10px rgba(0,0,0,0.1)',
-          }}
+          className="profile-image"
         />
-        <h1 style={{ marginTop: '1rem', fontSize: '2.5rem' }}>Mullac Reckut</h1>
-        <p style={{ fontSize: '1.2rem', color: '#666' }}>I am a big noob </p>
+        <h1 className="name">Mullac Reckut</h1>
+        <p className="description">I am a big noob</p>
       </header>
 
-      <section style={{ marginBottom: '2rem' }}>
-        <h2 style={{ borderBottom: '2px solid #333', paddingBottom: '0.5rem' }}>About Me</h2>
+      <section className="section">
+        <h2 className="section-title">About Me</h2>
         <p>
-          I'm trying to stuff with mostly typescript, react and C# and I enjoy building web applications. 
-          When I'm not coding, I am playing league of legends, which is most of the time, Its not a complete waste of time as I peaked Grand master last split, I also play clash royale and have been ultimate champion for the last 2 years.
+          I'm trying to stuff with mostly TypeScript, React, and C# and I enjoy building web applications.
+          When I'm not coding, I am playing League of Legends, which is most of the time. It's not a complete
+          waste of time as I peaked Grand Master last split. I also play Clash Royale and have been Ultimate
+          Champion for the last 2 years.
         </p>
       </section>
 
-      <section style={{ marginBottom: '2rem' }}>
-        <h2 style={{ borderBottom: '2px solid #333', paddingBottom: '0.5rem' }}>Skills</h2>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-          {['JavaScript', 'TypeScript', 'React', 'Node.js','Git','Python', 'C#'].map((skill) => (
-            <span key={skill} style={{
-              background: '#f0f0f0',
-              padding: '0.5rem',
-              borderRadius: '4px',
-              fontSize: '0.9rem',
-            }}>
+      <section className="section">
+        <h2 className="section-title">Skills</h2>
+        <div className="skills">
+          {['JavaScript', 'TypeScript', 'React', 'Node.js', 'Git', 'Python', 'C#'].map((skill) => (
+            <span key={skill} className="skill-badge">
               {skill}
             </span>
           ))}
         </div>
       </section>
 
-      <section style={{ marginBottom: '2rem' }}>
-        <h2 style={{ borderBottom: '2px solid #333', paddingBottom: '0.5rem' }}>Projects</h2>
+      <section className="section">
+        <h2 className="section-title">Projects</h2>
         <div>
           {[
             {
-              title: 'League of legends statistics site',
-              description: 'I Built a League of legends statics site, With a few of my friends, to store all of me and My friends personal data as we were completing a challenge, this site has now evolved to display alot more data and has some fun/random things on it like teir lists.'
+              title: 'League of Legends Statistics Site',
+              description: 'I built a League of Legends statistics site with a few friends to store all of our personal data while completing a challenge. This site has now evolved to display a lot more data and has some fun/random things on it like tier lists.',
             },
             {
-              title: 'Blog site about my dog',
-              description: 'Developed a responsive Blog application using React and Typescript. Features include Scroll into view features for different pages, Item hovers, and a go to top button which is important because I have a very large gallery about my dog on that site.'
+              title: 'Blog Site About My Dog',
+              description: 'Developed a responsive blog application using React and TypeScript. Features include scroll into view for different pages, item hovers, and a go-to-top button, which is important because I have a very large gallery about my dog on that site.',
             },
             {
               title: 'Weather Forecast Dashboard',
-              description: 'Created a weather forecast dashboard using React and a third-party weather API. Implemented geolocation, search functionality, and interactive charts for temperature and precipitation.'
-            }
+              description: 'Created a weather forecast dashboard using React and a third-party weather API. Implemented geolocation, search functionality, and interactive charts for temperature and precipitation.',
+            },
           ].map((project, index) => (
-            <div key={index} style={{ marginBottom: '1rem' }}>
-              <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>{project.title}</h3>
-              <p style={{ fontSize: '0.9rem', color: '#666' }}>{project.description}</p>
+            <div key={index} className="project">
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-description">{project.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section>
-        <h2 style={{ borderBottom: '2px solid #333', paddingBottom: '0.5rem' }}>You can find me here</h2>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+      <section className="section">
+        <h2 className="section-title">You Can Find Me Here</h2>
+        <div className="social-links">
           {['GitHub', 'Discord', 'Email'].map((platform) => (
-            <a
-              key={platform}
-              href="#"
-              style={{
-                display: 'inline-block',
-                padding: '0.5rem 1rem',
-                background: '#333',
-                color: '#fff',
-                textDecoration: 'none',
-                borderRadius: '4px',
-              }}
-            >
+            <a key={platform} href="#" className="social-link">
               {platform}
             </a>
           ))}
