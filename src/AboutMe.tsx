@@ -3,6 +3,7 @@ import './AboutMe.css';
 
 const AboutMe: React.FC = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleTheme = () => {
     setIsDarkTheme((prev) => !prev);
@@ -18,11 +19,23 @@ const AboutMe: React.FC = () => {
     }
   }, [isDarkTheme]);
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev);
+  };
+
   return (
-    <div className="about-me">
-      <button className="theme-toggle" onClick={toggleTheme}>
-        Switch to {isDarkTheme ? 'Light' : 'Dark'} Theme
+    <div className={`about-me ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
+      <button className="hamburger" onClick={toggleSidebar}>
+        &#9776; {/* Hamburger icon */}
       </button>
+
+      <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+        <button className="theme-toggle" onClick={toggleTheme}>
+          Switch to {isDarkTheme ? 'Light' : 'Dark'} Theme
+        </button>
+        {/* Add more options here if needed */}
+      </div>
+
       <header className="about-me-header">
         <img
           src="/placeholder.svg?height=150&width=150"
@@ -60,15 +73,15 @@ const AboutMe: React.FC = () => {
           {[
             {
               title: 'League of Legends Statistics Site',
-              description: 'I built a League of Legends statistics site with a few friends to store all of our personal data while completing a challenge. This site has now evolved to display a lot more data and has some fun/random things on it like tier lists.',
+              description: 'I built a League of Legends statistics site with a few friends...',
             },
             {
               title: 'Blog Site About My Dog',
-              description: 'Developed a responsive blog application using React and TypeScript. Features include scroll into view for different pages, item hovers, and a go-to-top button, which is important because I have a very large gallery about my dog on that site.',
+              description: 'Developed a responsive blog application using React and TypeScript...',
             },
             {
               title: 'Weather Forecast Dashboard',
-              description: 'Created a weather forecast dashboard using React and a third-party weather API. Implemented geolocation, search functionality, and interactive charts for temperature and precipitation.',
+              description: 'Created a weather forecast dashboard using React and a third-party weather API...',
             },
           ].map((project, index) => (
             <div key={index} className="project">
