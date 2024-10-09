@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './AboutMe.css';
+import profileImage from './imgs/pikchu.jpg'; // Ensure the path is correct
 
 const AboutMe: React.FC = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -26,19 +27,18 @@ const AboutMe: React.FC = () => {
   return (
     <div className={`about-me ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
       <button className="hamburger" onClick={toggleSidebar}>
-        &#9776; {/* Hamburger icon */}
+        &#9776;
       </button>
 
       <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <button className="theme-toggle" onClick={toggleTheme}>
           Switch to {isDarkTheme ? 'Light' : 'Dark'} Theme
         </button>
-        {/* Add more options here if needed */}
       </div>
 
       <header className="about-me-header">
         <img
-          src="/placeholder.svg?height=150&width=150"
+          src={profileImage} // Use the imported image here
           alt="Mullac Reckut"
           className="profile-image"
         />
