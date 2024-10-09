@@ -12,7 +12,7 @@ const AboutMe: React.FC = () => {
       <header style={{ textAlign: 'center', marginBottom: '2rem' }}>
         <img
           src="/placeholder.svg?height=150&width=150"
-          alt="Your Name"
+          alt="Mullac Reckut"
           style={{
             width: '150px',
             height: '150px',
@@ -21,23 +21,22 @@ const AboutMe: React.FC = () => {
             boxShadow: '0 0 10px rgba(0,0,0,0.1)',
           }}
         />
-        <h1 style={{ marginTop: '1rem', fontSize: '2.5rem' }}>Your Name</h1>
-        <p style={{ fontSize: '1.2rem', color: '#666' }}>Full Stack Developer</p>
+        <h1 style={{ marginTop: '1rem', fontSize: '2.5rem' }}>Mullac Reckut</h1>
+        <p style={{ fontSize: '1.2rem', color: '#666' }}>I am a big noob </p>
       </header>
 
       <section style={{ marginBottom: '2rem' }}>
         <h2 style={{ borderBottom: '2px solid #333', paddingBottom: '0.5rem' }}>About Me</h2>
         <p>
-          I'm a passionate full-stack developer with 5 years of experience in building web applications. 
-          I love creating elegant solutions to complex problems and am always eager to learn new technologies. 
-          When I'm not coding, you can find me hiking in the mountains or experimenting with new recipes in the kitchen.
+          I'm trying to stuff with mostly typescript, react and C# and I enjoy building web applications. 
+          When I'm not coding, I am playing league of legends, which is most of the time, Its not a complete waste of time as I peaked Grand master last split, I also play clash royale and have been ultimate champion for the last 2 years.
         </p>
       </section>
 
       <section style={{ marginBottom: '2rem' }}>
         <h2 style={{ borderBottom: '2px solid #333', paddingBottom: '0.5rem' }}>Skills</h2>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-          {['JavaScript', 'TypeScript', 'React', 'Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'GraphQL', 'Docker', 'AWS', 'Git'].map((skill) => (
+          {['JavaScript', 'TypeScript', 'React', 'Node.js','Git','Python', 'C#'].map((skill) => (
             <span key={skill} style={{
               background: '#f0f0f0',
               padding: '0.5rem',
@@ -55,12 +54,12 @@ const AboutMe: React.FC = () => {
         <div>
           {[
             {
-              title: 'E-commerce Platform',
-              description: 'Built a full-featured e-commerce platform using React, Node.js, and MongoDB. Implemented features such as user authentication, product catalog, shopping cart, and payment integration.'
+              title: 'League of legends statistics site',
+              description: 'I Built a League of legends statics site, With a few of my friends, to store all of me and My friends personal data as we were completing a challenge, this site has now evolved to display alot more data and has some fun/random things on it like teir lists.'
             },
             {
-              title: 'Task Management App',
-              description: 'Developed a responsive task management application using React and Firebase. Features include real-time updates, drag-and-drop task organization, and team collaboration tools.'
+              title: 'Blog site about my dog',
+              description: 'Developed a responsive Blog application using React and Typescript. Features include Scroll into view features for different pages, Item hovers, and a go to top button which is important because I have a very large gallery about my dog on that site.'
             },
             {
               title: 'Weather Forecast Dashboard',
@@ -76,9 +75,9 @@ const AboutMe: React.FC = () => {
       </section>
 
       <section>
-        <h2 style={{ borderBottom: '2px solid #333', paddingBottom: '0.5rem' }}>Get in Touch</h2>
+        <h2 style={{ borderBottom: '2px solid #333', paddingBottom: '0.5rem' }}>You can find me here</h2>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
-          {['GitHub', 'LinkedIn', 'Email'].map((platform) => (
+          {['GitHub', 'Discord', 'Email'].map((platform) => (
             <a
               key={platform}
               href="#"
