@@ -83,6 +83,11 @@ const AboutMe: React.FC = () => {
               title: 'Weather Forecast Dashboard',
               description: 'Created a weather forecast dashboard using React and a third-party weather API...',
             },
+            {
+              title: 'Games website',
+              description: 'Created a website to store games i have created so i can play them when i feel like it, like wordle and hangman for example...',
+            },
+
           ].map((project, index) => (
             <div key={index} className="project">
               <h3 className="project-title">{project.title}</h3>
